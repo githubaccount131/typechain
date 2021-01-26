@@ -1,0 +1,20 @@
+{
+  "name": "typechain",
+  "version": "1.0.0",
+  "description": "TypeScript BlockChain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/githubaccount131/typechain.git"
+  },
+  "author": "ento32940",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/githubaccount131/typechain/issues"
+  },
+  "homepage": "https://github.com/githubaccount131/typechain#readme"
+}
