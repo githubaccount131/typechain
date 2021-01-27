@@ -4,8 +4,7 @@
   "description": "TypeScript BlockChain",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node index.js"
+    "start": "node_modules\\.bin\\tsc-watch --onSuccess \" node dist/index.js\""
   },
   "repository": {
     "type": "git",
@@ -16,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/githubaccount131/typechain/issues"
   },
-  "homepage": "https://github.com/githubaccount131/typechain#readme"
+  "homepage": "https://github.com/githubaccount131/typechain#readme",
+  "devDependencies": {
+    "tsc-watch": "^4.2.9"
+  }
 }

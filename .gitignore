@@ -1,0 +1,8 @@
+# Ignore the modules
+node_modules/
+
+# Ignore the Git Folder
+.git/
+
+# Ignore Compiled Things
+dist/
