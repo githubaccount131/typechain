@@ -1,7 +1,7 @@
 import * as CryptoJS from "crypto-js";
 
 class Block {
-  static caculateBlockHash = (
+  static calculateBlockHash = (
     index: number,
     previousHash: string,
     timestamp: number,
@@ -14,7 +14,7 @@ class Block {
     typeof aBlock.index === "number" &&
     typeof aBlock.hash === "string" &&
     typeof aBlock.previousHash === "string" &&
-    typeof aBlock.timestamp === "string" &&
+    typeof aBlock.timestamp === "number" &&
     typeof aBlock.data === "string";
 
   public index: number;
@@ -38,11 +38,9 @@ class Block {
   }
 }
 
-const genesisBlock: Block = new Block(0, "20202020202", "", "Hello", 123456);
+const genesisBlock: Block = new Block(0, "2020202020202", "", "Hello", 123456);
 
 let blockChain: Block[] = [genesisBlock];
-
-console.log(blockChain);
 
 const getBlockchain = (): Block[] => blockChain;
 
@@ -54,7 +52,7 @@ const createNewBlock = (data: string): Block => {
   const previousBlock: Block = getLatestBlock();
   const newIndex: number = previousBlock.index + 1;
   const newTimestamp: number = getNewTimeStamp();
-  const newHash: string = Block.caculateBlockHash(
+  const newHash: string = Block.calculateBlockHash(
     newIndex,
     previousBlock.hash,
     newTimestamp,
@@ -67,12 +65,12 @@ const createNewBlock = (data: string): Block => {
     data,
     newTimestamp
   );
-
+  addBlock(newBlock);
   return newBlock;
 };
 
 const getHashforBlock = (aBlock: Block): string =>
-  Block.caculateBlockHash(
+  Block.calculateBlockHash(
     aBlock.index,
     aBlock.previousHash,
     aBlock.timestamp,
@@ -98,5 +96,10 @@ const addBlock = (candidateBlock: Block): void => {
     blockChain.push(candidateBlock);
   }
 };
+
+createNewBlock("Second block");
+createNewBlock("Hello BlockChain");
+
+console.log(blockChain);
 
 export {};
